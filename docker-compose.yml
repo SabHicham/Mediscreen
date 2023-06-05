@@ -1,0 +1,13 @@
+version: '3'
+services:
+  service-patient:
+    image: image-patient
+    container_name: container-patient
+
+  service-note:
+    image: image-note
+    container_name: container-note
+
+  service-rapport:
+    image: image-rapport
+    container_name: container-rapport
