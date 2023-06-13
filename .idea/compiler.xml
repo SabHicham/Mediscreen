@@ -15,7 +15,7 @@
     <bytecodeTargetLevel>
       <module name="note" target="11" />
       <module name="patient" target="17" />
-      <module name="patient (1)" target="17" />
+      <module name="patient (1)" target="11" />
       <module name="rapport" target="17" />
     </bytecodeTargetLevel>
   </component>
