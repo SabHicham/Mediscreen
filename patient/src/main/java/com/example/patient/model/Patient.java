@@ -8,8 +8,8 @@ import javax.persistence.*;
 public class Patient {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
 
     @Column (name = "first_name")
     private String firstName;
@@ -32,11 +32,12 @@ public class Patient {
 
 
     public Patient() {
+        // Constructeur par défaut
     }
 
 
-    public Patient(int id, String firstName, String lastName, String birthDate, String sex, String address, String phone) {
-        this.id = id;
+    public Patient( String firstName, String lastName, String birthDate, String sex, String address, String phone) {
+
         this.firstName = firstName;
         this.lastName = lastName;
         this.birthDate = birthDate;
@@ -45,7 +46,7 @@ public class Patient {
         this.phone = phone;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
