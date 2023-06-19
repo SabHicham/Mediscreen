@@ -11,22 +11,22 @@ public class Patient {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    @Column (name = "first_name")
+    @Column(name = "first_name", nullable = false)
     private String firstName;
 
-    @Column (name = "last_name")
+    @Column(name = "last_name", nullable = false)
     private String lastName;
 
-    @Column (name = "birth_date")
-    private String birthDate;
+    @Column(name = "date_of_birth", nullable = false)
+    private String dateOfBirth;
 
-    @Column (name = "sex")
+    @Column(name = "sex", nullable = false)
     private String sex;
 
-    @Column (name = "address")
+    @Column
     private String address;
 
-    @Column (name = "phone")
+    @Column
     private String phone;
 
 
@@ -36,11 +36,11 @@ public class Patient {
     }
 
 
-    public Patient( String firstName, String lastName, String birthDate, String sex, String address, String phone) {
+    public Patient( String firstName, String lastName, String dateOfBirth, String sex, String address, String phone) {
 
         this.firstName = firstName;
         this.lastName = lastName;
-        this.birthDate = birthDate;
+        this.dateOfBirth = dateOfBirth;
         this.sex = sex;
         this.address = address;
         this.phone = phone;
@@ -70,12 +70,12 @@ public class Patient {
         this.lastName = lastName;
     }
 
-    public String getBirthDate() {
-        return birthDate;
+    public String getDateOfBirth() {
+        return dateOfBirth;
     }
 
-    public void setBirthDate(String birthDate) {
-        this.birthDate = birthDate;
+    public void setDateOfBirth(String dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
     }
 
     public String getSex() {
