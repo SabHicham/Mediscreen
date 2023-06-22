@@ -24,9 +24,9 @@ public class PatientServiceTest {
     public void testCreatePatient() {
         // Crée un objet PatientDto avec des valeurs pour les attributs
         PatientDto patientDto = new PatientDto();
-        patientDto.setFirstName("John");
-        patientDto.setLastName("Doe");
-        patientDto.setDateOfBirth("1990-01-01");
+        patientDto.setFirstName("Hihcam");
+        patientDto.setLastName("yagear");
+        patientDto.setDateOfBirth("845");
         patientDto.setSex("Male");
 
         // Crée un objet Patient avec les mêmes valeurs que le DTO
@@ -60,9 +60,9 @@ public class PatientServiceTest {
         // Crée un objet Patient existant avec des valeurs pour les attributs
         Patient existingPatient = new Patient();
         existingPatient.setId(1);
-        existingPatient.setFirstName("John");
-        existingPatient.setLastName("Doe");
-        existingPatient.setDateOfBirth("1990-01-01");
+        existingPatient.setFirstName("Hicham");
+        existingPatient.setLastName("yagear");
+        existingPatient.setDateOfBirth("845");
         existingPatient.setSex("Male");
 
         // Définit le comportement du repository mocké lors de l'appel à findById()
