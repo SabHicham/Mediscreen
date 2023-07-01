@@ -1,54 +1,104 @@
 package com.example.patient.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import com.example.patient.dto.PatientDto;
 import com.example.patient.model.Patient;
 import com.example.patient.service.PatientService;
 
 import java.util.List;
+import java.util.Optional;
 
 @Controller
-@RequestMapping("/patients")
+@RequestMapping("/")
 public class PatientController {
-    private PatientService patientService;
-
     @Autowired
+    private final PatientService patientService;
+
     public PatientController(PatientService patientService) {
+        super();
         this.patientService = patientService;
     }
 
-    @PostMapping
-    public ResponseEntity<Patient> createPatient(@RequestBody PatientDto patientDto) {
-        Patient patient = patientService.createPatient(patientDto);
-        return new ResponseEntity<>(patient, HttpStatus.CREATED);
-    }
 
-    @GetMapping("/{patientId}")
-    public ResponseEntity<Patient> getPatient(@PathVariable long patientId) {
-        return patientService.getPatient(patientId)
-                .map(patient -> new ResponseEntity<>(patient, HttpStatus.OK))
-                .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
-    }
-
-    @PutMapping("/{patientId}")
-    public ResponseEntity<Void> updatePatient(@PathVariable long patientId, @RequestBody PatientDto patientDto) {
-        patientService.updatePatient(patientId, patientDto);
-        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-    }
-
-    @DeleteMapping("/{patientId}")
-    public ResponseEntity<Void> deletePatient(@PathVariable long patientId) {
-        patientService.deletePatient(patientId);
-        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-    }
-
-    @GetMapping
-    public ResponseEntity<List<Patient>> getAllPatients() {
+    @GetMapping("/services")
+    public String getServices(Model model) {
         List<Patient> patients = patientService.getAllPatients();
-        return new ResponseEntity<>(patients, HttpStatus.OK);
+        model.addAttribute("patients", patients);
+        return "services.html";
     }
+
+    @PostMapping("/services")
+    public String createPatient(@RequestParam("firstName") String firstName,
+                                @RequestParam("lastName") String lastName,
+                                @RequestParam("dateOfBirth") String dateOfBirth,
+                                @RequestParam("sex") String sex) {
+        PatientDto patientDto = new PatientDto();
+        patientDto.setFirstName(firstName);
+        patientDto.setLastName(lastName);
+        patientDto.setDateOfBirth(dateOfBirth);
+        patientDto.setSex(sex);
+        patientService.createPatient(patientDto);
+        return "redirect:/services";
+    }
+
+    @GetMapping("/services/{id}")
+    public String getPatient(@PathVariable("id") Long id, Model model) {
+        Optional<Patient> patient = patientService.getPatient(id);
+        model.addAttribute("patient", patient);
+        return "services.html";
+    }
+
+    @PostMapping("/services/{id}")
+    public String updatePatient(@PathVariable("id") Long id,
+                                @RequestParam("firstName") String firstName,
+                                @RequestParam("lastName") String lastName,
+                                @RequestParam("dateOfBirth") String dateOfBirth,
+                                @RequestParam("sex") String sex) {
+        PatientDto patientDto = new PatientDto();
+        patientDto.setFirstName(firstName);
+        patientDto.setLastName(lastName);
+        patientDto.setDateOfBirth(dateOfBirth);
+        patientDto.setSex(sex);
+        patientService.updatePatient(id, patientDto);
+        return "redirect:/services";
+    }
+
+    @GetMapping("/services/{id}/edit")
+    public String showEditForm(@PathVariable("id") Long id, Model model) {
+        Optional<Patient> patient = patientService.getPatient(id);
+
+        if (patient.isPresent()) {
+            model.addAttribute("patient", patient.get());
+            return "updatePatient";
+        } else {
+            return "redirect:/services";
+        }
+    }
+
+
+    @PostMapping("/services/{id}/delete")
+    public String deletePatient(@PathVariable("id") Long id) {
+        patientService.deletePatient(id);
+        return "redirect:/services";
+    }
+
+    //autres pages
+    @GetMapping("/about")
+    public String showAboutPage() {
+        return "about.html";
+    }
+
+    @GetMapping("/new_blog")
+    public String showNewBlogPage() {
+        return "new_blog.html";
+    }
+
+    @GetMapping("/resources")
+    public String showResourcesPage() {
+        return "resources.html";
+    }
+
 }

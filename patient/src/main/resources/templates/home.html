@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Mediscreen</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+</head>
+<body>
+<!-- Logo -->
+<img th:src="@{/img/mediscreen_logo.png}" alt="Logo Mediscreen" id="logo">
+
+<!-- Barre de recherche -->
+<input type="text" placeholder="Rechercher..." id="search-bar">
+
+<!-- Barre d'onglets -->
+<ul class="tab-bar">
+    <li><a th:href="@{/home}">Home</a></li>
+    <li><a th:href="@{/about}">About</a></li>
+    <li><a th:href="@{/services}">Services</a></li>
+    <li><a th:href="@{/resources}">Resources</a></li>
+    <li><a th:href="@{/new_blog}">New Blog</a></li>
+</ul>
+
+<div id="introduction">
+    <div id="text">
+        <h1>We care.</h1>
+        <p>Mediscreen specializes in detecting risk factors for disease.</p>
+        <p>Our screenings use predictive analysis of patient populations at an affordable cost.</p>
+        <ul>
+            <li>Are you a small or rural clinic or practice?</li>
+            <li>Do you need screenings for heart disease or hypertension precursors?</li>
+        </ul>
+        <p>We have a solution for you.</p>
+    </div>
+    <img th:src="@{/img/mediscreen_doctor.png}" alt="Doctor" id="doctor-image">
+</div>
+
+<script>
+
+</script>
+</body>
+</html>

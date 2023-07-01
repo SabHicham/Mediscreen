@@ -1,5 +1,6 @@
-package com.example.patient.service;
+package com.example.patient.service.impl;
 
+import com.example.patient.service.PatientService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -9,6 +10,9 @@ import com.example.patient.dto.PatientDto;
 import com.example.patient.model.Patient;
 import com.example.patient.repository.PatientRepository;
 
+import javax.transaction.Transactional;
+
+@Transactional
 @Service
 public class PatientServiceImpl implements PatientService {
     private PatientRepository patientRepository;

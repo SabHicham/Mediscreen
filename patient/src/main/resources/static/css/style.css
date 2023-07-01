@@ -1,0 +1,71 @@
+/* styles for the table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+/* styles for the logo */
+.logo {
+    float: left;
+}
+
+/* styles for the search bar */
+.search-bar {
+    float: right;
+}
+
+/* styles for the navigation tabs */
+.nav-tabs {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: blue;
+}
+
+.nav-tabs li {
+    float: left;
+}
+
+.nav-tabs li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.nav-tabs li a:hover {
+    background-color: darkblue;
+}
+
+/* styles for the content */
+.content {
+    margin-top: 20px;
+}
+
+/* styles for the text introduction */
+.text-intro {
+    float: left;
+    width: 60%;
+}
+
+.text-intro p {
+    margin-top: 0;
+}
+
+/* styles for the doctor image */
+.doctor-image {
+    float: right;
+    width: 40%;
+}

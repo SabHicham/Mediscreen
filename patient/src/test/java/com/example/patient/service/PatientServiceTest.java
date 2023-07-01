@@ -3,6 +3,7 @@ package com.example.patient.service;
 import com.example.patient.dto.PatientDto;
 import com.example.patient.model.Patient;
 import com.example.patient.repository.PatientRepository;
+import com.example.patient.service.impl.PatientServiceImpl;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
@@ -18,7 +19,7 @@ public class PatientServiceTest {
     private PatientRepository patientRepository;
 
     @InjectMocks
-    private com.example.patient.service.PatientServiceImpl patientService;
+    private PatientServiceImpl patientService;
 
     @Test
     public void testCreatePatient() {
