@@ -39,8 +39,15 @@
         <td th:text="${patient.dateOfBirth}"></td>
         <td th:text="${patient.sex}"></td>
         <td>
-            <a th:href="@{/updatePatient/{id}(id=${patient.id})}">Modifier</a>
-            <a th:href="@{/services/{id}/delete(id=${patient.id})}">Supprimer</a>
+            <!-- Formulaire de modification -->
+            <form th:action="@{/updatePatient/{id}(id=${patient.id})}" method="get">
+                <button type="submit">Modifier</button>
+            </form>
+
+            <!-- Formulaire de suppression -->
+            <form th:action="@{/services/{id}/delete(id=${patient.id})}" method="post">
+                <button type="submit">Supprimer</button>
+            </form>
         </td>
     </tr>
     </tbody>

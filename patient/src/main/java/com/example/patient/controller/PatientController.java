@@ -23,13 +23,7 @@ public class PatientController {
     }
 
 
-    @GetMapping("/services")
-    public String getServices(Model model) {
-        List<Patient> patients = patientService.getAllPatients();
-        model.addAttribute("patients", patients);
-        return "services.html";
-    }
-
+    //create
     @PostMapping("/services")
     public String createPatient(@RequestParam("firstName") String firstName,
                                 @RequestParam("lastName") String lastName,
@@ -43,47 +37,43 @@ public class PatientController {
         patientService.createPatient(patientDto);
         return "redirect:/services";
     }
-
-    @GetMapping("/services/{id}")
-    public String getPatient(@PathVariable("id") Long id, Model model) {
-        Optional<Patient> patient = patientService.getPatient(id);
-        model.addAttribute("patient", patient);
+    // read
+    @GetMapping("/services")
+    public String getAllPatients(Model model) {
+        List<Patient> patients = patientService.getAllPatients();
+        model.addAttribute("patients", patients);
         return "services.html";
     }
-
-    @PostMapping("/services/{id}")
-    public String updatePatient(@PathVariable("id") Long id,
-                                @RequestParam("firstName") String firstName,
-                                @RequestParam("lastName") String lastName,
-                                @RequestParam("dateOfBirth") String dateOfBirth,
-                                @RequestParam("sex") String sex) {
-        PatientDto patientDto = new PatientDto();
-        patientDto.setFirstName(firstName);
-        patientDto.setLastName(lastName);
-        patientDto.setDateOfBirth(dateOfBirth);
-        patientDto.setSex(sex);
+    //update
+    // Mise à jour du patient et redirection vers la page de mise à jour
+    @PostMapping("/updatePatient/{id}")
+    public String updatePatient(@PathVariable("id") Long id, @ModelAttribute("patient") PatientDto patientDto) {
         patientService.updatePatient(id, patientDto);
-        return "redirect:/services";
+        System.out.println("id patient");
+        return "redirect:/services/" ; // Redirige vers la page de mise à jour du patient
     }
 
-    @GetMapping("/services/{id}/edit")
+    // Afficher le formulaire de mise à jour avec les données du patient basées sur son ID
+    @GetMapping("/updatePatient/{id}")
     public String showEditForm(@PathVariable("id") Long id, Model model) {
         Optional<Patient> patient = patientService.getPatient(id);
 
         if (patient.isPresent()) {
             model.addAttribute("patient", patient.get());
-            return "updatePatient";
+            return "updatePatient.html"; // Afficher le formulaire de mise à jour
         } else {
             return "redirect:/services";
         }
     }
 
 
+    //delete
     @PostMapping("/services/{id}/delete")
     public String deletePatient(@PathVariable("id") Long id) {
         patientService.deletePatient(id);
         return "redirect:/services";
     }
+
 
     //autres pages
     @GetMapping("/about")

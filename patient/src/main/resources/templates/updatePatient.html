@@ -7,37 +7,15 @@
 </head>
 <body>
 <h1>Modification Patient</h1>
-<form action="#" method="post"
-      th:object="${patient}"
-      th:action="@{/services/{id}(id=${id})}">
-
-    <div>
-        <input type="text" th:field="*{firstName}" placeholder="first Name">
-    </div>
-    <div>
-        <input type="text" th:field="*{lastName}" placeholder="lastName">
-    </div>
-
-    <div>
-        <input type="date" th:field="*{dateOfBirth}" pattern="yyyy-MM-dd" placeholder="dateOfBirth">
-    </div>
-
-    <div>
-        <input type="text" th:field="*{sex}" placeholder="sex">
-    </div>
-
-    <!--<div>
-        <input type="text" th:field="*{address}" placeholder="address">
-    </div>
-
-    <div>
-        <input type="text" th:field="*{phone}" placeholder="phone">
-    </div>-->
-
-    <div>
-        <a href="/services">Cancel</a>
-        <button type="submit">Valider</button>
-    </div>
+<form th:action="@{/updatePatient/{id}(id=${patient.id})}" method="post" th:object="${patient}">
+    <input type="text" th:field="*{firstName}">
+    <input type="text" th:field="*{lastName}">
+    <input type="text" th:field="*{dateOfBirth}">
+    <input type="text" th:field="*{sex}">
+    <button type="submit">Modifier</button>
 </form>
+
+
+
 </body>
 </html>
