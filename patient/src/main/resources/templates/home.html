@@ -3,14 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <title>Mediscreen</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
 </head>
 <body>
-<!-- Logo -->
-<img th:src="@{/img/mediscreen_logo.png}" alt="Logo Mediscreen" id="logo">
+<div id="header" >
 
-<!-- Barre de recherche -->
-<input type="text" placeholder="Rechercher..." id="search-bar">
+    <!-- Logo -->
+    <div id="logo-container">
+        <img th:src="@{/img/mediscreen_logo.png}" alt="Logo Mediscreen" id="logo">
+    </div>
+
+    <!-- Barre de recherche -->
+    <div id="search-container">
+        <input type="text" placeholder="Rechercher..." id="search-bar">
+        <img th:src="@{/img/loupe.png}" alt="Loupe" id="search-button">
+    </div>
+</div>
+
+<!-- Liens "Questions? Contact us" -->
+<div id="contact-links">
+    <a href="#" id="contact-link">Questions? Contact us</a>
+</div>
 
 <!-- Barre d'onglets -->
 <ul class="tab-bar">
@@ -21,6 +34,7 @@
     <li><a th:href="@{/new_blog}">New Blog</a></li>
 </ul>
 
+<!-- Texte d'introduction -->
 <div id="introduction">
     <div id="text">
         <h1>We care.</h1>
@@ -30,7 +44,7 @@
             <li>Are you a small or rural clinic or practice?</li>
             <li>Do you need screenings for heart disease or hypertension precursors?</li>
         </ul>
-        <p>We have a solution for you.</p>
+        <h2>We have a solution for you.</h2>
     </div>
     <img th:src="@{/img/mediscreen_doctor.png}" alt="Doctor" id="doctor-image">
 </div>

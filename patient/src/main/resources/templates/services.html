@@ -3,14 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <title>Services</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
 </head>
 <body>
 <!-- Logo -->
-<img src="@{/img/mediscreen_logo.png}" alt="Logo Mediscreen" id="logo">
+<div id="logo-container">
+    <img th:src="@{/img/mediscreen_logo.png}" alt="Logo Mediscreen" id="logo">
+</div>
 
 <!-- Barre de recherche -->
-<input type="text" placeholder="Rechercher..." id="search-bar">
+<div id="search-container">
+    <input type="text" placeholder="Rechercher..." id="search-bar">
+    <img th:src="@{/img/loupe.png}" alt="Loupe" id="search-button">
+</div>
 
 <!-- Barre d'onglets -->
 <ul class="tab-bar">

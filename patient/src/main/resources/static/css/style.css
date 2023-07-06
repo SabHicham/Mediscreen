@@ -1,71 +1,107 @@
-/* styles for the table */
-table {
+/* CSS pour la page home */
+#header{
+    display:flex;
     width: 100%;
-    border-collapse: collapse;
+    height: 100px;
+
 }
 
-th, td {
-    padding: 8px;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
+/* Logo */
+#logo-container {
+    width:80%;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+}
+/* Logo */
+#logo {
+
+    width: 300px;
+
 }
 
-th {
-    background-color: #f2f2f2;
-}
-
-/* styles for the logo */
-.logo {
-    float: left;
-}
-
-/* styles for the search bar */
-.search-bar {
-    float: right;
-}
-
-/* styles for the navigation tabs */
-.nav-tabs {
-    list-style-type: none;
-    margin: 0;
+/* Barre d'onglets */
+.tab-bar {
+    background-color: #398297;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    list-style: none;
     padding: 0;
-    overflow: hidden;
-    background-color: blue;
+    height: 40px; /* Deux fois la hauteur souhaitée */
 }
 
-.nav-tabs li {
-    float: left;
+.tab-bar li {
+    margin-right: 80px; /* Espacement entre les liens */
 }
 
-.nav-tabs li a {
-    display: block;
+.tab-bar li a {
     color: white;
-    text-align: center;
-    padding: 14px 16px;
     text-decoration: none;
+    line-height: 40px; /* Hauteur de la barre d'onglets */
+    font-weight: bold; /* Texte en gras */
 }
 
-.nav-tabs li a:hover {
-    background-color: darkblue;
+/* Texte d'introduction */
+#introduction {
+    display: flex;
+    flex-direction: row;
 }
 
-/* styles for the content */
-.content {
-    margin-top: 20px;
+#text {
+    width: 50%;
 }
 
-/* styles for the text introduction */
-.text-intro {
-    float: left;
-    width: 60%;
+#text h1 {
+    text-align: center; /* Centrer le texte "We care." */
+    color: #398297; /* Texte en bleu */
 }
 
-.text-intro p {
-    margin-top: 0;
+#text h2 {
+    text-align: center; /* Centrer le texte "We have a solution for you." */
+    color: #398297; /* Texte en bleu */
 }
 
-/* styles for the doctor image */
-.doctor-image {
-    float: right;
-    width: 40%;
+/* Image du docteur */
+#doctor-image {
+    width: 50%;
+    margin-left: 20px;
+}
+
+/* Barre de recherche */
+#search-container {
+
+
+    width: 20%;
+    margin-right: 30px;
+    display: flex;
+
+    align-items: center;
+    justify-content: right;
+}
+
+#search-bar-container {
+    display: flex;
+    align-items: center;
+}
+
+#search-bar {
+    border: 1px solid #398297; /* Couleur des traits de la barre de recherche */
+    padding: 5px;
+}
+
+#search-button {
+    width: 20px;
+    height: 20px;
+    margin-left: 5px;
+}
+
+/* Liens "Questions? Contact us" */
+#contact-links {
+    text-align: right;
+    margin-right: 50px;
+}
+#contact-link {
+    color: #398297; /* Couleur du lien */
+    text-decoration: none;
 }
