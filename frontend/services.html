@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Services</title>
+    <link rel="stylesheet" type="text/css" href="static/css/style.css">
+</head>
+<body>
+<!-- Logo -->
+<div id="logo-container">
+    <img src="static/img/mediscreen_logo.png" alt="Logo Mediscreen" id="logo">
+</div>
+
+<!-- Barre de recherche -->
+<div id="search-container">
+    <input type="text" placeholder="Rechercher..." id="search-bar">
+    <img src="static/img/loupe.png" alt="Loupe" id="search-button">
+</div>
+
+<!-- Barre d'onglets -->
+<ul class="tab-bar">
+    <li><a href="/home">Home</a></li>
+    <li><a href="/about">About</a></li>
+    <li><a href="/services">Services</a></li>
+    <li><a href="/resources">Resources</a></li>
+    <li><a href="/new_blog">New Blog</a></li>
+</ul>
+
+<!-- Tableau des patients -->
+<table id="list-patient">
+    <thead>
+    <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Date of Birth</th>
+        <th>Sex</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>Firstname:</td>
+        <td>Lastname:</td>
+        <td>Birth:</td>
+        <td>Sex:</td>
+        <td>
+            <!-- Formulaire de modification -->
+            <form method="get">
+                <button type="submit">Modifier</button>
+            </form>
+
+            <!-- Formulaire de suppression -->
+            <form method="post">
+                <button type="submit">Supprimer</button>
+            </form>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<!-- Formulaire d'ajout de patient -->
+<form>
+<label for="firstName">First Name:</label>
+    <input type="text" id="firstName" name="firstName" required><br>
+    <label for="lastName">Last Name:</label>
+    <input type="text" id="lastName" name="lastName" required><br>
+    <label for="dateOfBirth">Date of Birth:</label>
+    <input type="text" id="dateOfBirth" name="dateOfBirth" required><br>
+    <label for="sex">Sex:</label>
+    <input type="text" id="sex" name="sex" required><br>
+    <button onclick="ajouterPatient()" type="submit">Ajouter</button>
+</form>
+
+<script>
+
+    // lister les patients
+    let patientListUrl = "http://localhost:8081/patient/list";
+    fetch(patientListUrl)
+    .then((response) => response.json())
+    .then(data => {
+        let patientDiv = document.getElementById("list-patient").getElementsByTagName('tbody')[0];
+
+        for(let i = 0; i < data.length; ++i) {
+            patientDiv.innerHTML+=('<tr><td>Firstname:'+data[i].firstName+'</td><td>Lastname:'+data[i].lastName+'</td><td>Birth:'+data[i].dateOfBirth+'</td><td>Sex:'+data[i].sex+'</td><td><form method="get"><button type="submit">Modifier</button></form><form method="post"><button type="submit">Supprimer</button></form></td></tr>');
+        }
+    });
+
+    // ajouter patient
+    function ajouterPatient() {
+        let fname = document.getElementById("firstName").value;
+        let lname = document.getElementById("lastName").value;
+        let date = document.getElementById("dateOfBirth").value;
+        let sex = document.getElementById("sex").value;
+        let patientCreateUrl = `http://localhost:8081/patient/create/?firstName=${fname}&lastName=${lname}&dateOfBirth=${date}&sex=${sex}`;
+
+        fetch(patientCreateUrl, {method: "POST"})
+        .then((response) => response.json())
+        .then(data => window.location.reload());
+    }
+
+    //modifier patient
+
+
+</script>
+
+</body>
+</html>

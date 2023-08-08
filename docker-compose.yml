@@ -3,11 +3,28 @@ services:
   service-patient:
     image: image-patient
     container_name: container-patient
+    network_mode: "host"
+    ports:
+      - 8081:8081
 
-  service-note:
-    image: image-note
-    container_name: container-note
+  # service-note:
+  #   image: image-note
+  #   container_name: container-note
+  #   ports:
+  #     - 8082:8082
 
-  service-rapport:
-    image: image-rapport
-    container_name: container-rapport
+  # service-rapport:
+  #   image: image-rapport
+  #   container_name: container-rapport
+  #   ports:
+  #     - 8083:8083
+
+  # service-front:
+  #   image: image-front
+  #   container_name: container-front
+  #   ports:
+  #     - 8080:8080
+  #   depends_on:
+  #     - service-patient
+  #     - service-note
+  #     - service-rapport
