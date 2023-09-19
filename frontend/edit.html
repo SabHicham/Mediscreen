@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Mediscreen - Hicham</title>
+    <link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+
+    <div class="header">
+        <img src="static/img/mediscreen_logo.png">
+        <div class="menu">
+            <ul>
+                <li><a href="/new.html">Ajouter</a></li>
+                <li><a href="/">Patients</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <form action="#" class="patients-form">
+        <input type="text" id="firstname" placeholder="Prénom">
+        <input type="text" id="lastname" placeholder="Nom">
+        <input type="text" id="birthdate" placeholder="Date de naissance YYYY-MM-DD">
+        <input type="text" id="sex" placeholder="Sex (M ou F)">
+        <input type="text" id="addr" placeholder="Adresse">
+        <input type="text" id="tel" placeholder="Téléphone">
+        <a onclick="envoyerForm()"class="patient-card-button" style="margin: auto">Modifier</a>
+    </form>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const patientId = urlParams.get('patientId')
+
+        fetch(`http://localhost:8081/patient/find/${patientId}`)
+        .then(res => res.json())
+        .then(data => {
+            document.getElementById("firstname").value = data.firstName;
+            document.getElementById("lastname").value = data.lastName;
+            document.getElementById("birthdate").value = data.dateOfBirth;
+            document.getElementById("sex").value = data.sex;
+            document.getElementById("addr").value = data.address;
+            document.getElementById("tel").value = data.phone;
+        })
+
+        function envoyerForm() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const patientId = urlParams.get('patientId')
+            
+            let firstname = document.getElementById("firstname").value
+            let lastname  = document.getElementById("lastname").value
+            let birthdate = document.getElementById("birthdate").value
+            let sex       = document.getElementById("sex").value
+            let addr      = document.getElementById("addr").value
+            let tel       = document.getElementById("tel").value
+
+            let url = `http://localhost:8081/patient/update/${patientId}`;
+
+            fetch(url, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    firstName: firstname,
+                    lastName: firstname,
+                    dateOfBirth: birthdate,
+                    sex: sex,
+                    address: addr,
+                    phone: tel
+                })
+            })
+            .then(res => window.location.replace("/"))
+        }
+    </script>
+
+</body>
+</html>
