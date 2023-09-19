@@ -3,10 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/Mediscreen.iml" filepath="$PROJECT_DIR$/.idea/Mediscreen.iml" />
-      <module fileurl="file://$PROJECT_DIR$/note/note.iml" filepath="$PROJECT_DIR$/note/note.iml" />
-      <module fileurl="file://$PROJECT_DIR$/front/patient.iml" filepath="$PROJECT_DIR$/front/patient.iml" />
-      <module fileurl="file://$PROJECT_DIR$/patient/patient (1).iml" filepath="$PROJECT_DIR$/patient/patient (1).iml" />
-      <module fileurl="file://$PROJECT_DIR$/rapport/rapport.iml" filepath="$PROJECT_DIR$/rapport/rapport.iml" />
     </modules>
   </component>
 </project>
