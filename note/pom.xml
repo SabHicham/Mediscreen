@@ -14,7 +14,7 @@
 	<name>note</name>
 	<description>ajouter des notes suite à la visite d&apos;un patient</description>
 	<properties>
-		<java.version>11</java.version>
+		<java.version>17</java.version>
 	</properties>
 	<dependencies>
 		<!--<dependency>
