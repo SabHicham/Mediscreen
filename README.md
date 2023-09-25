@@ -17,7 +17,8 @@ MediScreen est une application conçue pour aider les médecins à générer des
 3. **Rapport**: Génère des rapports à partir des données fournies dans les notes.
 
 ## diagramme
-<img width="800" alt="mpd_p6"  src="https://github.com/SabHicham/Mediscreen/dev/diagramme%20d'interaction.png">
+<img width="800" alt="mpd_p6"  src="https://github.com/SabHicham/Mediscreen/blob/dev/diagramme%20d'interaction.png">
+
 
 ## Prérequis
 
