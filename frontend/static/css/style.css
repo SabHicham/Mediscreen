@@ -1,0 +1,245 @@
+<<<<<<< HEAD
+body {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    font-family: Arial Narrow, sans-serif;
+}
+
+.header {
+    height: 200px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.header img {
+    width: 500px;
+}
+
+.menu {
+    width: 100%;
+    height: 50px;
+    background: #128499;
+}
+
+.menu ul {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    align-items: center;
+}
+
+/* a:hover, a:visited, a:link, a:active
+{
+    text-decoration: none;
+} */
+
+.menu ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+.menu ul li {
+    padding-right: 50px;
+    color: white;
+    font-weight: bold;
+}
+
+.patients {
+    width: 60%;
+    margin: auto;
+    height: inherit;
+}
+
+.patient-card {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 20px;
+    background: #DCDCDC;
+    font-weight: bold;
+}
+
+.patient-descr {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    background: #DCDCDC;
+    font-weight: bold;
+}
+
+
+.patient-card-button {
+    height: 30px;
+    width: 100px;
+    border: 0;
+    color: white;
+    background-color: #128499;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.patient-card > * {
+    margin-left:30px
+}
+
+
+.patients-form {
+    width: 60%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.patients-form input {
+    border: 0;
+    height: 30px;
+    background-color: #DCDCDC;
+    margin: 10px;
+}
+
+.note {
+    height: inherit;
+    width: 100%;
+    background-color: #DCDCDC;
+    margin-top: 10px;
+}
+
+.note p {
+    margin: 0;
+    padding: 10px;
+}
+
+.note-add {
+    background-color: inherit;
+    margin-left: 20px;
+    width: 80%;
+    margin: auto;;
+}
+
+.note-add textarea {
+    width: 100%;
+    height: 100%;
+    margin-bottom: 10px;
+}
+
+.note-add a {
+    margin-right: auto;
+=======
+/* CSS pour la page home */
+#header{
+    display:flex;
+    width: 100%;
+    height: 100px;
+
+}
+
+/* Logo */
+#logo-container {
+    width:80%;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+}
+/* Logo */
+#logo {
+
+    width: 300px;
+
+}
+
+/* Barre d'onglets */
+.tab-bar {
+    background-color: #398297;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    list-style: none;
+    padding: 0;
+    height: 40px; /* Deux fois la hauteur souhaitée */
+}
+
+.tab-bar li {
+    margin-right: 80px; /* Espacement entre les liens */
+}
+
+.tab-bar li a {
+    color: white;
+    text-decoration: none;
+    line-height: 40px; /* Hauteur de la barre d'onglets */
+    font-weight: bold; /* Texte en gras */
+}
+
+/* Texte d'introduction */
+#introduction {
+    display: flex;
+    flex-direction: row;
+}
+
+#text {
+    width: 50%;
+}
+
+#text h1 {
+    text-align: center; /* Centrer le texte "We care." */
+    color: #398297; /* Texte en bleu */
+}
+
+#text h2 {
+    text-align: center; /* Centrer le texte "We have a solution for you." */
+    color: #398297; /* Texte en bleu */
+}
+
+/* Image du docteur */
+#doctor-image {
+    width: 50%;
+    margin-left: 20px;
+}
+
+/* Barre de recherche */
+#search-container {
+
+
+    width: 20%;
+    margin-right: 30px;
+    display: flex;
+
+    align-items: center;
+    justify-content: right;
+}
+
+#search-bar-container {
+    display: flex;
+    align-items: center;
+}
+
+#search-bar {
+    border: 1px solid #398297; /* Couleur des traits de la barre de recherche */
+    padding: 5px;
+}
+
+#search-button {
+    width: 20px;
+    height: 20px;
+    margin-left: 5px;
+}
+
+/* Liens "Questions? Contact us" */
+#contact-links {
+    text-align: right;
+    margin-right: 50px;
+}
+#contact-link {
+    color: #398297; /* Couleur du lien */
+    text-decoration: none;
+>>>>>>> 16d330befd98565236a72b4c1aa2bd892f4797c0
+}

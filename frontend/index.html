@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+<<<<<<< HEAD
+    <title>Mediscreen - Hicham</title>
+    <link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+
+    <div class="header">
+        <img src="static/img/mediscreen_logo.png">
+        <div class="menu">
+            <ul>
+                <li><a href="/new.html">Ajouter</a></li>
+                <li><a href="/">Patients</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="patient-list" class="patients">
+        <!-- <div class="patient-card">
+            <p>Nom</p>
+            <p>Prénom</p>
+            <p>Age</p>
+            <button class="patient-card-button">Voir</button>
+            <button class="patient-card-button">Modifier</button>
+            <button class="patient-card-button">Supprimer</button>
+        </div> -->
+
+    </div>
+
+    <script>
+        fetch('http://localhost:8081/patient/list').then(res => res.json())
+        .then(data => {
+
+            for(let i = 0; i < data.length; ++i) {
+                let patients = document.getElementById("patient-list")
+                let html = `<div class="patient-card"><p>${data[i].lastName}</p>
+                    <p>${data[i].firstName}</p>
+                    <a href="/rapport.html?patientId=${data[i].id}" class="patient-card-button">Voir</a>
+                    <a href="/edit.html?patientId=${data[i].id}" class="patient-card-button">Modifier</a>
+                    <a onclick="deletePatient(${data[i].id})" class="patient-card-button">Supprimer</a>
+                </div>`
+                patients.innerHTML += html;
+            }
+        })
+
+        function deletePatient(id) {
+            fetch(`http://localhost:8081/patient/delete/${id}`)
+            .then(res => window.location.replace("/"))
+        }
+    </script>
+
+</body>
+</html>
+=======
+    <title>Sample Thymeleaf template</title>
+</head>
+<body>
+
+<h1>Page d'accueil</h1>
+
+</body>
+</html>
+>>>>>>> 16d330befd98565236a72b4c1aa2bd892f4797c0

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Mediscreen - Hicham</title>
+    <link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+
+    <div class="header">
+        <img src="static/img/mediscreen_logo.png">
+        <div class="menu">
+            <ul>
+                <li><a href="/new.html">Ajouter</a></li>
+                <li><a href="/">Patients</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="patient-list" class="patients">
+        <h3>Fiche patient</h3>
+        <div class="patient-descr">
+            <p id="lastname">Nom</p>
+            <p id="firstname">Prénom</p>
+            <p id="dateOfBirth">Date de naissance</p>
+            <p id="sex">Sexe</p>
+            <p id="tel">Téléphone</p>
+            <p id="addr">Adresse</p>
+            <p id="rapport">Rapport diabète : </p>
+        </div>
+        <h3>Notes</h3>
+
+        <div id="notes">
+
+        </div>
+
+        <h3>Ajout</h3>
+        <form action="#" class="note-add">
+            <textarea id="note-content"></textarea>
+            <a onclick="envoyerForm()"class="patient-card-button" style="margin: auto">Ajouter</a>
+        </form>
+    </div>
+    
+    <script>
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const patientId = urlParams.get('patientId')
+
+        // fiche patient
+        fetch(`http://localhost:8081/patient/find/${patientId}`)
+        .then(res => res.json())
+        .then(data => {
+            document.getElementById("firstname").innerHTML = "Prénom: " + data.firstName;
+            document.getElementById("lastname").innerHTML =  "Nom: " + data.lastName;
+            document.getElementById("dateOfBirth").innerHTML =  "Date de naissance: " + data.dateOfBirth;
+            document.getElementById("sex").innerHTML =  "Sexe: " + (data.sex == "m" || data.sex == "M") ? "Homme": "Femme" ;
+            document.getElementById("addr").innerHTML =  "Adresse: " + data.address;
+            document.getElementById("tel").innerHTML =  "Téléphone: " + data.phone;
+        })
+
+        // notes
+        fetch(`http://localhost:8082/api/notes/patient/${patientId}`)
+        .then(res => res.json())
+        .then(data => {
+            for(let i = 0; i < data.length; ++i) {
+                let notes = document.getElementById("notes");
+                let html = `<div class="note"><p>${data[i].note} (${data[i].dateNote})</p></div>`;
+                notes.innerHTML += html;
+            }
+        })
+
+        // rapport
+        fetch(`http://localhost:8083/rapport/${patientId}`)
+        .then(res => res.json())
+        .then(data => {
+            let rapport = document.getElementById("rapport");
+            rapport.innerHTML += data.riskLevel;
+        })
+
+        function envoyerForm() {
+            fetch(`http://localhost:8082/api/notes/`, {
+                method: 'POST',
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    firstName: document.getElementById('firstname').innerHTML,
+                    lastName: document.getElementById('lastname').innerHTML,
+                    patientId: new URLSearchParams(window.location.search).get('patientId'),
+                    note: document.getElementById("note-content").value,
+                })
+            }).then(res => window.location.reload())
+        }
+
+    </script>
+
+</body>
+</html>
