@@ -6,10 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
-<<<<<<< HEAD
 @CrossOrigin(origins = "*")
-=======
->>>>>>> 16d330befd98565236a72b4c1aa2bd892f4797c0
 @RestController
 @RequestMapping("/api/notes") // Endpoint de base pour les requêtes relatives aux notes
 public class NoteController {
@@ -45,7 +42,3 @@ public class NoteController {
         noteService.deleteNoteById(noteId);
     }
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> 16d330befd98565236a72b4c1aa2bd892f4797c0

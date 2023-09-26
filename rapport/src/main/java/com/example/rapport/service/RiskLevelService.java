@@ -12,10 +12,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
-<<<<<<< HEAD
 import java.util.ArrayList;
-=======
->>>>>>> 16d330befd98565236a72b4c1aa2bd892f4797c0
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -50,13 +47,8 @@ public class RiskLevelService {
         }
 
         // In Danger
-<<<<<<< HEAD
         boolean hommeMoinsTrentAnsDanger = patient.getSex().equals("m") && agePatient<30 && nbDeclencheur>3;
         boolean femmeMoinsTrentAnsDanger = patient.getSex().equals("f") && agePatient<30 && nbDeclencheur>4;
-=======
-        boolean hommeMoinsTrentAnsDanger = patient.getSex()=="m" && agePatient<30 && nbDeclencheur>3;
-        boolean femmeMoinsTrentAnsDanger = patient.getSex()=="f" && agePatient<30 && nbDeclencheur>4;
->>>>>>> 16d330befd98565236a72b4c1aa2bd892f4797c0
         boolean patientPlusTrentAnsDanger = agePatient>30 &&nbDeclencheur>6;
 
         if (hommeMoinsTrentAnsDanger || femmeMoinsTrentAnsDanger || patientPlusTrentAnsDanger) {
@@ -64,13 +56,8 @@ public class RiskLevelService {
         }
 
         // Early onset
-<<<<<<< HEAD
         boolean hommeMoinsTrentAnsEarly = patient.getSex().equals("m") && agePatient<30 && nbDeclencheur>5;
         boolean femmeMoinsTrentAnsEarly = patient.getSex().equals("f") && agePatient<30 && nbDeclencheur>7;
-=======
-        boolean hommeMoinsTrentAnsEarly = patient.getSex()=="m" && agePatient<30 && nbDeclencheur>5;
-        boolean femmeMoinsTrentAnsEarly = patient.getSex()=="f" && agePatient<30 && nbDeclencheur>7;
->>>>>>> 16d330befd98565236a72b4c1aa2bd892f4797c0
         boolean patientPlusTrentAnsEarly = agePatient>30 &&nbDeclencheur>8;
 
         if (hommeMoinsTrentAnsEarly || femmeMoinsTrentAnsEarly || patientPlusTrentAnsEarly) {
@@ -87,10 +74,6 @@ public class RiskLevelService {
     //    return VARIABLE;
     //} Note1, Note2, Note3
      public long getNbDeclencheur(List<Note> notes) {
-<<<<<<< HEAD
-=======
-
->>>>>>> 16d330befd98565236a72b4c1aa2bd892f4797c0
          String[] motsDeclencheurs = new String[] {"Hémoglobine A1C",
                  "Microalbumine",
                  "Taille",
@@ -103,7 +86,6 @@ public class RiskLevelService {
                  "Réaction",
                  "Anticorps"};
 
-<<<<<<< HEAD
          List<String> declencheursFound = new ArrayList<>();
 
         for(Note note: notes) {
@@ -119,22 +101,6 @@ public class RiskLevelService {
 
     public long getPatientAge (Patient patient) {
         return ChronoUnit.YEARS.between(LocalDate.parse(patient.getDateOfBirth()), LocalDate.now());
-=======
-         String noteToStream = notes.stream()
-                 .map(Note::getNote)
-                 .map(String::trim)
-                 .collect(Collectors.joining());
-
-         return Arrays.stream(motsDeclencheurs)
-                 .filter(noteToStream::contains)
-                 .distinct()
-                 .count();
-
-    }
-
-    public long getPatientAge (Patient patient) {
-        return ChronoUnit.YEARS.between(patient.getDateOfBirth(), LocalDate.now());
->>>>>>> 16d330befd98565236a72b4c1aa2bd892f4797c0
     }
 
 

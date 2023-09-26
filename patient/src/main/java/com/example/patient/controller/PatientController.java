@@ -27,11 +27,7 @@ public class PatientController {
 
     //create
     @PostMapping("/create")
-<<<<<<< HEAD
     public Patient createPatient(@RequestParam("firstName") String firstName,
-=======
-    public void createPatient(@RequestParam("firstName") String firstName,
->>>>>>> 16d330befd98565236a72b4c1aa2bd892f4797c0
                                 @RequestParam("lastName") String lastName,
                                 @RequestParam("dateOfBirth") String dateOfBirth,
                                 @RequestParam("sex") String sex) {
@@ -40,11 +36,7 @@ public class PatientController {
         patientDto.setLastName(lastName);
         patientDto.setDateOfBirth(dateOfBirth);
         patientDto.setSex(sex);
-<<<<<<< HEAD
         return patientService.createPatient(patientDto);
-=======
-        patientService.createPatient(patientDto);
->>>>>>> 16d330befd98565236a72b4c1aa2bd892f4797c0
     }
     // read
     @GetMapping("/list")
@@ -56,21 +48,13 @@ public class PatientController {
     //update
     // Mise à jour du patient et redirection vers la page de mise à jour
     @PostMapping("/update/{id}")
-<<<<<<< HEAD
     public void updatePatient(@PathVariable("id") Long id, @RequestBody PatientDto patientDto) {
-=======
-    public void updatePatient(@PathVariable("id") Long id, @ModelAttribute("patient") PatientDto patientDto) {
->>>>>>> 16d330befd98565236a72b4c1aa2bd892f4797c0
         patientService.updatePatient(id, patientDto);
         System.out.println("id patient");
     }
 
     //delete
-<<<<<<< HEAD
     @GetMapping("/delete/{id}")
-=======
-    @PostMapping("/delete/{id}")
->>>>>>> 16d330befd98565236a72b4c1aa2bd892f4797c0
     public void deletePatient(@PathVariable("id") Long id) {
         patientService.deletePatient(id);
     }

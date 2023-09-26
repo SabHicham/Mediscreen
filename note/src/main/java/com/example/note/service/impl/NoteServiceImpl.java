@@ -8,13 +8,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
-<<<<<<< HEAD
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
-=======
-import java.util.List;
->>>>>>> 16d330befd98565236a72b4c1aa2bd892f4797c0
 
 @Service
 public class NoteServiceImpl implements NoteService {
@@ -27,11 +23,8 @@ public class NoteServiceImpl implements NoteService {
 
     @Override
     public Note addNoteToPatient(Note note) {
-<<<<<<< HEAD
         note.setId(UUID.randomUUID().toString());
         note.setDateNote(LocalDateTime.now());
-=======
->>>>>>> 16d330befd98565236a72b4c1aa2bd892f4797c0
         return noteRepository.save(note); // Enregistrer la note dans la base de données
     }
 

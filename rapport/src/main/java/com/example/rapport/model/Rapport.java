@@ -20,7 +20,6 @@ public class Rapport {
         this.sex = sex;
         this.riskLevel = riskLevel;
     }
-<<<<<<< HEAD
 
     public String getLastName() {
         return lastName;
@@ -61,6 +60,4 @@ public class Rapport {
     public void setRiskLevel(RiskLevel riskLevel) {
         this.riskLevel = riskLevel;
     }
-=======
->>>>>>> 16d330befd98565236a72b4c1aa2bd892f4797c0
 }
