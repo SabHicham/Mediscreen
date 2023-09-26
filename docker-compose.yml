@@ -24,7 +24,6 @@ services:
   service-patient:
     image: image-patient
     container_name: container-patient
-<<<<<<< HEAD
     depends_on:
       - db
     networks:
@@ -32,7 +31,7 @@ services:
     ports:
       - 8081:8081
     environment:
-      - "SPRING_DATASOURCE_URL=jdbc:mysql://db/mediscreen?createDatabaseIfNotExist=true"
+      - "SPRING_DATASOURCE_URL=jdbc:mysql://db:3306/mediscreen?createDatabaseIfNotExist=true"
       - "spring_datasource_username=root"
       - "spring_datasource_password=root"
 
@@ -73,30 +72,3 @@ services:
       - "8080:80"
     networks:
       - default
-=======
-    network_mode: "host"
-    ports:
-      - 8081:8081
-
-  # service-note:
-  #   image: image-note
-  #   container_name: container-note
-  #   ports:
-  #     - 8082:8082
-
-  # service-rapport:
-  #   image: image-rapport
-  #   container_name: container-rapport
-  #   ports:
-  #     - 8083:8083
-
-  # service-front:
-  #   image: image-front
-  #   container_name: container-front
-  #   ports:
-  #     - 8080:8080
-  #   depends_on:
-  #     - service-patient
-  #     - service-note
-  #     - service-rapport
->>>>>>> 16d330befd98565236a72b4c1aa2bd892f4797c0

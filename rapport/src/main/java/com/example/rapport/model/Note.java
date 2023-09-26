@@ -5,11 +5,7 @@ import java.time.LocalDateTime;
 
 public class Note {
 
-<<<<<<< HEAD
     private String id;
-=======
-    private long id;
->>>>>>> 16d330befd98565236a72b4c1aa2bd892f4797c0
     private long patientId;
     private String firstName;
     private String lastName;
@@ -21,11 +17,7 @@ public class Note {
     public Note() {
     }
 
-<<<<<<< HEAD
     public Note(String id, long patientId, String firstName, String lastName, String note, LocalDateTime dateNote) {
-=======
-    public Note(long id, long patientId, String firstName, String lastName, String note, LocalDateTime dateNote) {
->>>>>>> 16d330befd98565236a72b4c1aa2bd892f4797c0
         this.id = id;
         this.patientId = patientId;
         this.firstName = firstName;
@@ -34,7 +26,6 @@ public class Note {
         this.dateNote = dateNote;
     }
 
-<<<<<<< HEAD
     public Note(long patientId, String firstName, String lastName, String note, LocalDateTime dateNote) {
         this.id = id;
         this.patientId = patientId;
@@ -49,14 +40,6 @@ public class Note {
     }
 
     public void setId(String id) {
-=======
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
->>>>>>> 16d330befd98565236a72b4c1aa2bd892f4797c0
         this.id = id;
     }
 
